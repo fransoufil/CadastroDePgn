@@ -136,25 +136,25 @@ public class TelaPecas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnBrancasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrancasActionPerformed
-//        this.dispose();
-//        TelaTipo telatipo = new TelaTipo();
-//        telatipo.setVisible(true);
-//
-//        TelaTipo.lblResulado.setText(lblResultado.getText());
-//        TelaTipo.lblPecas.setText("BRANCAS");
-//        TelaTipo.lblSiglaResultado.setText(lblSiglaResultado.getText());
-//        TelaTipo.lblSiglaPecas.setText("b");
+        this.dispose();
+        TelaTipo telatipo = new TelaTipo();
+        telatipo.setVisible(true);
+
+        TelaTipo.lblResulado.setText(lblResultado.getText());
+        TelaTipo.lblPecas.setText("BRANCAS");
+        TelaTipo.lblSiglaResultado.setText(lblSiglaResultado.getText());
+        TelaTipo.lblSiglaPecas.setText("b");
     }//GEN-LAST:event_btnBrancasActionPerformed
 
     private void btnPretasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPretasActionPerformed
-//        this.dispose();
-//        TelaTipo telatipo = new TelaTipo();
-//        telatipo.setVisible(true);
-//
-//        TelaTipo.lblResulado.setText(lblResultado.getText());
-//        TelaTipo.lblPecas.setText("PRETAS");
-//        TelaTipo.lblSiglaResultado.setText(lblSiglaResultado.getText());
-//        TelaTipo.lblSiglaPecas.setText("");
+        this.dispose();
+        TelaTipo telatipo = new TelaTipo();
+        telatipo.setVisible(true);
+
+        TelaTipo.lblResulado.setText(lblResultado.getText());
+        TelaTipo.lblPecas.setText("PRETAS");
+        TelaTipo.lblSiglaResultado.setText(lblSiglaResultado.getText());
+        TelaTipo.lblSiglaPecas.setText("");
     }//GEN-LAST:event_btnPretasActionPerformed
 
     /**
