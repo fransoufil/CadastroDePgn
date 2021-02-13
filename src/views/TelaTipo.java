@@ -46,7 +46,8 @@ public class TelaTipo extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 102, 0));
 
         btnPc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PC 96.png"))); // NOI18N
-        btnPc.setText("PC");
+        btnPc.setText("ENGINE (PC)");
+        btnPc.setToolTipText("");
         btnPc.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnPc.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnPc.addActionListener(new java.awt.event.ActionListener() {
@@ -210,16 +211,16 @@ public class TelaTipo extends javax.swing.JFrame {
 
     private void btnPcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPcActionPerformed
         
-//        this.dispose();
-//        TelaPc telapc = new TelaPc();
-//        telapc.setVisible(true);
-//        
-//        TelaPc.lblResultado.setText(lblResulado.getText());
-//        TelaPc.lblPecas.setText(lblPecas.getText());
-//        TelaPc.lblSiglaResultado.setText(lblSiglaResultado.getText());
-//        TelaPc.lblSiglaPecas.setText(lblSiglaPecas.getText());
-//        TelaPc.lblTipo.setText("PC");
-//        TelaPc.lblSiglaTipo.setText("c");
+        this.dispose();
+        TelaPc telapc = new TelaPc();
+        telapc.setVisible(true);
+        
+        TelaPc.lblResultado.setText(lblResulado.getText());
+        TelaPc.lblPecas.setText(lblPecas.getText());
+        TelaPc.lblSiglaResultado.setText(lblSiglaResultado.getText());
+        TelaPc.lblSiglaPecas.setText(lblSiglaPecas.getText());
+        TelaPc.lblTipo.setText("PC");
+        TelaPc.lblSiglaTipo.setText("c");
 
         
     }//GEN-LAST:event_btnPcActionPerformed
