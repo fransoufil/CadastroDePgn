@@ -1,9 +1,10 @@
-package models;
 
-public class CapturaDadosPgn {
+package models.DadosPgn;
 
-    String sequenciaInicial(String pgn) {
-
+public class SequenciaInicial {
+    
+    String sequenciainicial (String pgn) {
+        
         String inicioabertura = "1. ";
         String finalabertura = "7.";
         String sequenciainicial = "1.";
@@ -43,5 +44,7 @@ public class CapturaDadosPgn {
 
         return sequenciainicial;
     }
-
+    
+    
+    
 }
