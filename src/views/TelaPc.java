@@ -194,7 +194,6 @@ public class TelaPc extends javax.swing.JFrame {
 
         verificaMESTRE = txtMestre.getText();
         //System.out.println(verificaMESTRE);
-        
 
         try {
             //System.out.println(verificaperfil);
@@ -228,45 +227,43 @@ public class TelaPc extends javax.swing.JFrame {
 
     private void btnAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarActionPerformed
 
-//        TelaCadastrar telacadastrar = new TelaCadastrar();
-//        telacadastrar.setVisible(true);
-        
-        aplicar();
+        TelaCadastrar telacadastrar = new TelaCadastrar();
+        telacadastrar.setVisible(true);
 
+        //aplicar();
 //        this.dispose();
-
 
     }//GEN-LAST:event_btnAplicarActionPerformed
 
     private void btnSTOCKFISHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSTOCKFISHActionPerformed
-        
+
         String nomedomestre = lblSTOCKFISH.getText();
         String siglamestre = "sto";
 
         txtMestre.setText(nomedomestre);
         txtSiglaMestre.setText(siglamestre);
 
-        
+
     }//GEN-LAST:event_btnSTOCKFISHActionPerformed
 
     private void btnCMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCMAActionPerformed
-        
+
         String nomedomestre = lblCM.getText();
         String siglamestre = "cma";
 
         txtMestre.setText(nomedomestre);
         txtSiglaMestre.setText(siglamestre);
-        
+
     }//GEN-LAST:event_btnCMAActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        
+
         this.dispose();
-        
+
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnOUTROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOUTROActionPerformed
-       String nomedoperfil = JOptionPane.showInputDialog("Qual o nome da Engine?").toUpperCase();
+        String nomedoperfil = JOptionPane.showInputDialog("Qual o nome da Engine?").toUpperCase();
         String siglaperfil = nomedoperfil.substring(0, 3).toLowerCase();
         txtMestre.setText(nomedoperfil);
         txtSiglaMestre.setText(siglaperfil);

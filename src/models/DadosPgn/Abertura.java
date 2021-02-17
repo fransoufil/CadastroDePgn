@@ -2,7 +2,7 @@ package models.DadosPgn;
 
 public class Abertura {
 
-    String abertura(String sequenciainicial) {
+    public String getAbertura(String sequenciainicial) {
 
         String sequenciadeabertura = "";
 

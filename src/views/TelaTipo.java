@@ -178,9 +178,9 @@ public class TelaTipo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPessoalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPessoalActionPerformed
-//        this.dispose();
-//        TelaCadastrar telacadastrar = new TelaCadastrar();
-//        telacadastrar.setVisible(true);
+        this.dispose();
+        TelaCadastrar telacadastrar = new TelaCadastrar();
+        telacadastrar.setVisible(true);
 //
 //        TelaCadastrar.txtResultado.setText(lblResulado.getText());
 //        TelaCadastrar.txtPecas.setText(lblPecas.getText());
