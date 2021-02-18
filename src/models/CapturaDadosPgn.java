@@ -2,7 +2,7 @@ package models;
 
 public class CapturaDadosPgn {
 
-    String sequenciaInicial(String pgn) {
+    public String sequenciaInicial(String pgn) {
 
         String inicioabertura = "1. ";
         String finalabertura = "7.";
@@ -44,11 +44,11 @@ public class CapturaDadosPgn {
         return sequenciainicial;
     }
     
-    String abertura (String sequenciainicial) {
+    public String abertura (String sequenciainicial) {
         
         String sequenciadeabertura = "";
 
-        sequenciadeabertura = sequenciainicial.substring(0, 6);
+        sequenciadeabertura = sequenciainicial.substring(0, 9);
 
         return sequenciadeabertura;
     }

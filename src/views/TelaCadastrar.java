@@ -1,15 +1,13 @@
-
 package views;
+
+import models.CapturaDadosPgn;
 
 public class TelaCadastrar extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaCadastrar2
-     */
     public TelaCadastrar() {
         initComponents();
     }
- 
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -581,60 +579,102 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1277, 824));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPgnPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtPgnPropertyChange
-        
+
+        CapturaDadosPgn dados = new CapturaDadosPgn();
+
+        String sequenciainicial;
+
+        if (!txtPgn.getText().equals("")) {
+
+            sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
+
+            System.out.println("sequenciainicial-------> " + sequenciainicial);
+
+        }
+
 
     }//GEN-LAST:event_txtPgnPropertyChange
 
     private void btnMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcasActionPerformed
 
-        
+
     }//GEN-LAST:event_btnMarcasActionPerformed
 
     private void btnNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNomeActionPerformed
 
-        
 
     }//GEN-LAST:event_btnNomeActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
-        
+
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnColarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColarActionPerformed
 
-      
+        String pgn = txtPgn.getText();
+        CapturaDadosPgn dados = new CapturaDadosPgn();
+
+        String sequenciainicial, abertura;
+
+        if (pgn.equals("")) {
+            txtPgn.paste();
+
+            if (!txtPgn.getText().equals("")) {
+
+                sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
+                abertura = dados.abertura(sequenciainicial);
+
+                System.out.println("sequenciainicial-------> " + sequenciainicial);
+                System.out.println("abertura-------> " + abertura);
+
+            }
+
+        } else {
+            txtPgn.setText("");
+            txtPgn.paste();
+
+            if (!txtPgn.getText().equals("")) {
+
+                sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
+                abertura = dados.abertura(sequenciainicial);
+
+                System.out.println("sequenciainicial-------> " + sequenciainicial);
+                System.out.println("abertura-------> " + abertura);
+
+            }
+        }
+
     }//GEN-LAST:event_btnColarActionPerformed
 
     private void btnINICIOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnINICIOActionPerformed
-        
+
         this.dispose();
-        
+
     }//GEN-LAST:event_btnINICIOActionPerformed
 
     private void btnClockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClockActionPerformed
 
-        
+
     }//GEN-LAST:event_btnClockActionPerformed
 
     private void btnCopiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCopiarActionPerformed
 
-        
+
     }//GEN-LAST:event_btnCopiarActionPerformed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
 
-        
+
     }//GEN-LAST:event_btnOkActionPerformed
 
     private void btnLichessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLichessActionPerformed
 
-        
-       
 
     }//GEN-LAST:event_btnLichessActionPerformed
 
@@ -678,7 +718,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -725,7 +764,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
     private javax.swing.JTextField txtAbertura;
     public static javax.swing.JTextField txtBlack;
     public static javax.swing.JTextField txtPecas;
-    private javax.swing.JTextArea txtPgn;
+    public static javax.swing.JTextArea txtPgn;
     public static javax.swing.JTextField txtResultado;
     private javax.swing.JTextField txtSequenciaInicial;
     private javax.swing.JTextField txtSiglaDaAbertura;
