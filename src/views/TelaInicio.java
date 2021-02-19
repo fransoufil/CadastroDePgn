@@ -40,7 +40,7 @@ public class TelaInicio extends javax.swing.JFrame {
         setLocation(new java.awt.Point(300, 100));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 51));
+        jPanel1.setBackground(new java.awt.Color(255, 102, 0));
 
         btnCadastrar.setBackground(new java.awt.Color(255, 255, 204));
         btnCadastrar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -78,7 +78,7 @@ public class TelaInicio extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(255, 102, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 0));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setText("MENU INICIAL");
