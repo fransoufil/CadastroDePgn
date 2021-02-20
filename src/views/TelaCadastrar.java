@@ -587,13 +587,15 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
         CapturaDadosPgn dados = new CapturaDadosPgn();
 
-        String sequenciainicial;
+        String sequenciainicial, abertura;
 
         if (!txtPgn.getText().equals("")) {
 
             sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
+            abertura = dados.abertura(sequenciainicial);
 
-            System.out.println("sequenciainicial-------> " + sequenciainicial);
+            txtSequenciaInicial.setText(sequenciainicial);
+            txtAbertura.setText(abertura);
 
         }
 
@@ -629,9 +631,9 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
                 sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
                 abertura = dados.abertura(sequenciainicial);
-
-                System.out.println("sequenciainicial-------> " + sequenciainicial);
-                System.out.println("abertura-------> " + abertura);
+                
+                txtSequenciaInicial.setText(sequenciainicial);
+                txtAbertura.setText(abertura);
 
             }
 
@@ -643,9 +645,9 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
                 sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
                 abertura = dados.abertura(sequenciainicial);
-
-                System.out.println("sequenciainicial-------> " + sequenciainicial);
-                System.out.println("abertura-------> " + abertura);
+                
+                txtSequenciaInicial.setText(sequenciainicial);
+                txtAbertura.setText(abertura);
 
             }
         }
