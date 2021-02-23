@@ -181,21 +181,21 @@ public class TelaTipo extends javax.swing.JFrame {
         this.dispose();
         TelaCadastrar telacadastrar = new TelaCadastrar();
         telacadastrar.setVisible(true);
-//
-//        TelaCadastrar.txtResultado.setText(lblResulado.getText());
-//        TelaCadastrar.txtPecas.setText(lblPecas.getText());
-//        TelaCadastrar.txtTipo.setText("PESSOAL");
-//        TelaCadastrar.lblTipo.setText("PESSOAL");
-//        TelaCadastrar.lblSiglaTipo.setText("a");
-//        TelaCadastrar.lblTipo.setVisible(false);
-//        TelaCadastrar.lblSiglaTipo.setVisible(false);
-//        TelaCadastrar.lblPecas.setText(lblPecas.getText());
-//        TelaCadastrar.lblSiglaPecas.setText(lblSiglaPecas.getText());
-//        TelaCadastrar.lblResultado.setText(lblResulado.getText());
-//        TelaCadastrar.lblSiglaResultado.setText(lblSiglaResultado.getText());
-//        TelaCadastrar.lblPerfil.setText("PESSOAL");
-//        TelaCadastrar.lblSiglaPerfil.setText("a");
-//        TelaCadastrar.lblMestre.setText("PESSOAL");
+
+        TelaCadastrar.txtResultado.setText(lblResulado.getText());
+        TelaCadastrar.txtPecas.setText(lblPecas.getText());
+        TelaCadastrar.txtTipo.setText("PESSOAL");
+        TelaCadastrar.lblTipo.setText("PESSOAL");
+        TelaCadastrar.lblSiglaTipo.setText("a");
+        TelaCadastrar.lblTipo.setVisible(false);
+        TelaCadastrar.lblSiglaTipo.setVisible(false);
+        TelaCadastrar.lblPecas.setText(lblPecas.getText());
+        TelaCadastrar.lblSiglaPecas.setText(lblSiglaPecas.getText());
+        TelaCadastrar.lblResultado.setText(lblResulado.getText());
+        TelaCadastrar.lblSiglaResultado.setText(lblSiglaResultado.getText());
+        TelaCadastrar.lblPerfil.setText("PESSOAL");
+        TelaCadastrar.lblSiglaPerfil.setText("a");
+        TelaCadastrar.lblMestre.setText("PESSOAL");
 
 
     }//GEN-LAST:event_btnPessoalActionPerformed

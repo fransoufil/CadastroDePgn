@@ -6,7 +6,7 @@ public class Abertura {
 
         String sequenciadeabertura = "";
 
-        sequenciadeabertura = sequenciainicial.substring(0, 6);
+        sequenciadeabertura = sequenciainicial.substring(0, 9);
 
         return sequenciadeabertura;
     }

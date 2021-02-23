@@ -1,6 +1,11 @@
 package views;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import javax.swing.JOptionPane;
 import models.CapturaDadosPgn;
+import models.DadosPgn.*;
 
 public class TelaCadastrar extends javax.swing.JFrame {
 
@@ -585,21 +590,19 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
     private void txtPgnPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtPgnPropertyChange
 
-        CapturaDadosPgn dados = new CapturaDadosPgn();
-
-        String sequenciainicial, abertura;
+        String sequenciainicial, abertura, nomedaabertura;
 
         if (!txtPgn.getText().equals("")) {
 
-            sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
-            abertura = dados.abertura(sequenciainicial);
+            sequenciainicial = new SequenciaInicial().getSequenciainicial(TelaCadastrar.txtPgn.getText());
+            abertura = new Abertura().getAbertura(sequenciainicial);
+            nomedaabertura = new NomeDaAbertura().getNomeDaAbertura(abertura, txtPecas.getText());
 
             txtSequenciaInicial.setText(sequenciainicial);
             txtAbertura.setText(abertura);
+            txtSiglaDaAbertura.setText(nomedaabertura);
 
         }
-
-
     }//GEN-LAST:event_txtPgnPropertyChange
 
     private void btnMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarcasActionPerformed
@@ -621,19 +624,27 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
         String pgn = txtPgn.getText();
         CapturaDadosPgn dados = new CapturaDadosPgn();
+        //SequenciaInicial si = new SequenciaInicial();
 
-        String sequenciainicial, abertura;
+        String sequenciainicial, abertura, nomedaabertura;
 
         if (pgn.equals("")) {
             txtPgn.paste();
 
             if (!txtPgn.getText().equals("")) {
 
-                sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
-                abertura = dados.abertura(sequenciainicial);
-                
+//                AQUI OUTRAS FORMAS DE INSTACIAR, A PARTIR DA CLASSE MONOLITICA CapturaDadosPgn
+//                sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
+//                abertura = dados.abertura(sequenciainicial);
+//                nomedaabertura = dados.nomedaabertura(abertura, txtPecas.getText());
+//                sequenciainicial = si.getSequenciainicial(TelaCadastrar.txtPgn.getText());
+                sequenciainicial = new SequenciaInicial().getSequenciainicial(TelaCadastrar.txtPgn.getText());
+                abertura = new Abertura().getAbertura(sequenciainicial);
+                nomedaabertura = new NomeDaAbertura().getNomeDaAbertura(abertura, txtPecas.getText());
+
                 txtSequenciaInicial.setText(sequenciainicial);
                 txtAbertura.setText(abertura);
+                txtSiglaDaAbertura.setText(nomedaabertura);
 
             }
 
@@ -643,11 +654,18 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
             if (!txtPgn.getText().equals("")) {
 
-                sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
-                abertura = dados.abertura(sequenciainicial);
-                
+                // AQUI OUTRAS FORMAS DE INSTACIAR, A PARTIR DA CLASSE MONOLITICA CapturaDadosPgn
+//                sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
+//                abertura = dados.abertura(sequenciainicial);
+//                nomedaabertura = dados.nomedaabertura(abertura, txtPecas.getText());
+//                sequenciainicial = si.getSequenciainicial(TelaCadastrar.txtPgn.getText());
+                sequenciainicial = new SequenciaInicial().getSequenciainicial(TelaCadastrar.txtPgn.getText());
+                abertura = new Abertura().getAbertura(sequenciainicial);
+                nomedaabertura = new NomeDaAbertura().getNomeDaAbertura(abertura, txtPecas.getText());
+
                 txtSequenciaInicial.setText(sequenciainicial);
                 txtAbertura.setText(abertura);
+                txtSiglaDaAbertura.setText(nomedaabertura);
 
             }
         }
@@ -667,6 +685,14 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
     private void btnCopiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCopiarActionPerformed
 
+        String texto = txtPgn.getText();
+
+        if (texto.equals("")) {
+            JOptionPane.showMessageDialog(null, "Não há PGN caregado!", "ATENÇÃO", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();;
+            clipboard.setContents(new StringSelection(texto), null);
+        }
 
     }//GEN-LAST:event_btnCopiarActionPerformed
 
