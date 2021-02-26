@@ -1,5 +1,5 @@
 
-package models.DadosPgn;
+package models.DataPgn;
 
 import javax.swing.JTextArea;
 

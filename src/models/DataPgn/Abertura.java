@@ -1,4 +1,4 @@
-package models.DadosPgn;
+package models.DataPgn;
 
 public class Abertura {
 
