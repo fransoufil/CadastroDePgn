@@ -1,7 +1,7 @@
 package views;
 
+import models.ChangesPgn.*;
 import models.DataPgn.*;
-import models.CutsPgn.*;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -31,7 +31,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtPgn = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
-        btnCutMark = new javax.swing.JButton();
+        btnEraseMark = new javax.swing.JButton();
         btnNome = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         btnObservacao = new javax.swing.JButton();
@@ -204,12 +204,12 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        btnCutMark.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnCutMark.setText("MARCAS");
-        btnCutMark.setPreferredSize(new java.awt.Dimension(91, 24));
-        btnCutMark.addActionListener(new java.awt.event.ActionListener() {
+        btnEraseMark.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEraseMark.setText("MARCAS");
+        btnEraseMark.setPreferredSize(new java.awt.Dimension(91, 24));
+        btnEraseMark.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCutMarkActionPerformed(evt);
+                btnEraseMarkActionPerformed(evt);
             }
         });
 
@@ -451,7 +451,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
                                 .addGap(35, 35, 35)
                                 .addComponent(btnCutClock, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(57, 57, 57)
-                                .addComponent(btnCutMark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnEraseMark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(76, 76, 76)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnLichess, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -546,7 +546,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCutClock, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCutMark, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEraseMark, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(btnLichess)
@@ -599,17 +599,27 @@ public class TelaCadastrar extends javax.swing.JFrame {
             abertura = new Abertura().getAbertura(sequenciainicial);
             nomedaabertura = new NomeDaAbertura().getNomeDaAbertura(abertura, txtPecas.getText());
 
-            txtSequenciaInicial.setText(sequenciainicial);
+            //txtSequenciaInicial.setText(sequenciainicial);
+            txtSequenciaInicial.setText(new ReplaceOpening().replaceOpening(sequenciainicial));
             txtAbertura.setText(abertura);
             txtSiglaDaAbertura.setText(nomedaabertura);
 
         }
     }//GEN-LAST:event_txtPgnPropertyChange
 
-    private void btnCutMarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCutMarkActionPerformed
+    private void btnEraseMarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEraseMarkActionPerformed
 
+        String strSequenciainicial;
+        
+        if (!txtPgn.getText().equals("")) {
+            strSequenciainicial = new ReplaceOpening().replaceOpening(txtSequenciaInicial.getText());
+            
+            //System.out.println("strSequenciainicial----->" + strSequenciainicial);
+            
+            txtSequenciaInicial.setText(strSequenciainicial);
+        }
 
-    }//GEN-LAST:event_btnCutMarkActionPerformed
+    }//GEN-LAST:event_btnEraseMarkActionPerformed
 
     private void btnNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNomeActionPerformed
 
@@ -624,8 +634,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
     private void btnColarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnColarActionPerformed
 
         String pgn = txtPgn.getText();
-//        CapturaDadosPgn dados = new CapturaDadosPgn();
-        //SequenciaInicial si = new SequenciaInicial();
 
         String sequenciainicial, abertura, nomedaabertura;
 
@@ -634,16 +642,11 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
             if (!txtPgn.getText().equals("")) {
 
-//                AQUI OUTRAS FORMAS DE INSTACIAR, A PARTIR DA CLASSE MONOLITICA CapturaDadosPgn
-//                sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
-//                abertura = dados.abertura(sequenciainicial);
-//                nomedaabertura = dados.nomedaabertura(abertura, txtPecas.getText());
-//                sequenciainicial = si.getSequenciainicial(TelaCadastrar.txtPgn.getText());
                 sequenciainicial = new SequenciaInicial().getSequenciainicial(TelaCadastrar.txtPgn.getText());
                 abertura = new Abertura().getAbertura(sequenciainicial);
                 nomedaabertura = new NomeDaAbertura().getNomeDaAbertura(abertura, txtPecas.getText());
 
-                txtSequenciaInicial.setText(sequenciainicial);
+                txtSequenciaInicial.setText(new ReplaceOpening().replaceOpening(sequenciainicial));
                 txtAbertura.setText(abertura);
                 txtSiglaDaAbertura.setText(nomedaabertura);
 
@@ -655,16 +658,12 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
             if (!txtPgn.getText().equals("")) {
 
-                // AQUI OUTRAS FORMAS DE INSTACIAR, A PARTIR DA CLASSE MONOLITICA CapturaDadosPgn
-//                sequenciainicial = dados.sequenciaInicial(TelaCadastrar.txtPgn.getText());
-//                abertura = dados.abertura(sequenciainicial);
-//                nomedaabertura = dados.nomedaabertura(abertura, txtPecas.getText());
-//                sequenciainicial = si.getSequenciainicial(TelaCadastrar.txtPgn.getText());
                 sequenciainicial = new SequenciaInicial().getSequenciainicial(TelaCadastrar.txtPgn.getText());
                 abertura = new Abertura().getAbertura(sequenciainicial);
                 nomedaabertura = new NomeDaAbertura().getNomeDaAbertura(abertura, txtPecas.getText());
 
-                txtSequenciaInicial.setText(sequenciainicial);
+                //txtSequenciaInicial.setText(sequenciainicial);
+                txtSequenciaInicial.setText(new ReplaceOpening().replaceOpening(sequenciainicial));
                 txtAbertura.setText(abertura);
                 txtSiglaDaAbertura.setText(nomedaabertura);
 
@@ -684,7 +683,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
         String cutpgn = "";
         
         if (!txtPgn.getText().equals("")) {
-            cutpgn = new ClockCut().clockCut(TelaCadastrar.txtPgn.getText());
+            cutpgn = new EraseClock().eraseClock(TelaCadastrar.txtPgn.getText());
         }
         txtPgn.setText(cutpgn);
     }//GEN-LAST:event_btnCutClockActionPerformed
@@ -759,7 +758,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
     private javax.swing.JButton btnColar;
     private javax.swing.JButton btnCopiar;
     private javax.swing.JButton btnCutClock;
-    private javax.swing.JButton btnCutMark;
+    private javax.swing.JButton btnEraseMark;
     private javax.swing.JButton btnINICIO;
     private javax.swing.JButton btnLichess;
     private javax.swing.JButton btnLimpar;

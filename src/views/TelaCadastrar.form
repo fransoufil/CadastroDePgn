@@ -108,7 +108,7 @@
                               <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
                               <Component id="btnCutClock" min="-2" pref="91" max="-2" attributes="0"/>
                               <EmptySpace min="57" pref="57" max="-2" attributes="0"/>
-                              <Component id="btnCutMark" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEraseMark" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="76" pref="76" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnLichess" min="-2" pref="180" max="-2" attributes="0"/>
@@ -219,7 +219,7 @@
                       <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnCutClock" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Component id="btnCutMark" min="-2" pref="80" max="-2" attributes="0"/>
+                          <Component id="btnEraseMark" min="-2" pref="80" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                               <Component id="btnLichess" min="-2" max="-2" attributes="0"/>
@@ -533,7 +533,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnCutMark">
+    <Component class="javax.swing.JButton" name="btnEraseMark">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="11" style="1"/>
@@ -544,7 +544,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCutMarkActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEraseMarkActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnNome">
