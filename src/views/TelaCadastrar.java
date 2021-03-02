@@ -66,7 +66,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
         btnOk = new javax.swing.JButton();
         btnLichess = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
-        btnAdicionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -371,14 +370,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
             }
         });
 
-        btnAdicionar.setToolTipText("Adicionar");
-        btnAdicionar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -453,11 +444,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
                                 .addGap(57, 57, 57)
                                 .addComponent(btnEraseMark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(76, 76, 76)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnLichess, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(60, 60, 60)
-                                        .addComponent(btnAdicionar))))))
+                                .addComponent(btnLichess, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(btnColar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -549,10 +536,8 @@ public class TelaCadastrar extends javax.swing.JFrame {
                             .addComponent(btnEraseMark, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(btnLichess)
-                                .addGap(15, 15, 15)
-                                .addComponent(btnAdicionar)))))
-                .addGap(1, 1, 1)
+                                .addComponent(btnLichess)))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(13, 13, 13)
@@ -582,7 +567,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addComponent(btnINICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(1277, 824));
@@ -649,6 +634,13 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 txtSequenciaInicial.setText(new ReplaceOpening().replaceOpening(sequenciainicial));
                 txtAbertura.setText(abertura);
                 txtSiglaDaAbertura.setText(nomedaabertura);
+                
+                String event = new Event().getEvent(TelaCadastrar.txtPgn.getText());
+                System.out.println("Event------> " + event);
+                String white = new White().getWhite(TelaCadastrar.txtPgn.getText());
+                System.out.println("White------> " + white);
+                String black = new Black().getBlack(TelaCadastrar.txtPgn.getText());
+                System.out.println("Black------> " + black);
 
             }
 
@@ -717,10 +709,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
-    private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
-        //adicionar();
-    }//GEN-LAST:event_btnAdicionarActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -754,7 +742,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnColar;
     private javax.swing.JButton btnCopiar;
     private javax.swing.JButton btnCutClock;
