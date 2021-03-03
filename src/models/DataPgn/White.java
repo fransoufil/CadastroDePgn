@@ -30,7 +30,8 @@ public class White {
                 
             } else {
                 
-                white = white.replace(".", "-");
+                white = white.replace(".", "/");
+                white = white.replace("/ ", "/");
                 
             }
 

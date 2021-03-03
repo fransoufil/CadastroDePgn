@@ -28,7 +28,8 @@ public class Event {
                 
             } else {
                 
-                event = event.replace(".", "-");
+                event = event.replace(".", "/");
+                event = event.replace("/ ", "/");
                 
             }
 

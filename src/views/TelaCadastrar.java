@@ -599,8 +599,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
         if (!txtPgn.getText().equals("")) {
             strSequenciainicial = new ReplaceOpening().replaceOpening(txtSequenciaInicial.getText());
             
-            //System.out.println("strSequenciainicial----->" + strSequenciainicial);
-            
             txtSequenciaInicial.setText(strSequenciainicial);
         }
 

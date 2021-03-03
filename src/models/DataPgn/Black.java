@@ -30,7 +30,8 @@ public class Black {
                 
             } else {
                 
-                black = black.replace(".", "-");
+                black = black.replace(".", "/");
+                black = black.replace("/ ", "/");
                 
             }
 
