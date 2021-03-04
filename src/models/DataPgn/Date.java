@@ -5,6 +5,10 @@ public class Date {
     public String getDate(String pgn) {
 
         String date;
+        
+        pgn = pgn.replace(".??", "/??");
+        pgn = pgn.replace("??", "2");
+        
         int chaveiniciododate = pgn.indexOf("[Date ");
 
         if (chaveiniciododate == -1) {

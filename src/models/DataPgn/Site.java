@@ -13,7 +13,7 @@ public class Site {
         
         } else {
 
-            int posicaoinicialdosite = chaveiniciodosite + 8;
+            int posicaoinicialdosite = chaveiniciodosite + 7;
 
             String txtsemsite = pgn.substring(posicaoinicialdosite);
 
