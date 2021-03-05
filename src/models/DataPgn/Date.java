@@ -17,7 +17,7 @@ public class Date {
         
         } else {
 
-            int posicaoinicialdodate = chaveiniciododate + 8;
+            int posicaoinicialdodate = chaveiniciododate + 7;
 
             String txtsemdate = pgn.substring(posicaoinicialdodate);
 
