@@ -6,7 +6,7 @@ public class WhiteElo {
 
         String whiteelo;
         
-        int chaveiniciodowhiteelo = pgn.indexOf("[Termination ");
+        int chaveiniciodowhiteelo = pgn.indexOf("[WhiteElo ");
 
         if (chaveiniciodowhiteelo == -1) {
             
