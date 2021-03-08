@@ -3,18 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Date.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Annotator.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Event.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Site.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/White.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Round.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/WhiteElo.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Black.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/BlackElo.java</file>
+            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/UTCDate.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Termination.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Result.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/views/TelaCadastrar.java</file>
         </group>
     </open-files>
 </project-private>
