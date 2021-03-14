@@ -6,8 +6,10 @@
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/UTCDate.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/ECO.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Site.java</file>
+            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Opening.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Termination.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/TimeControl.java</file>
+            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/UTCTime.java</file>
         </group>
     </open-files>
 </project-private>
