@@ -635,10 +635,36 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 
                 String event = new Event().getEvent(TelaCadastrar.txtPgn.getText());
                 System.out.println("Event------> " + event);
+                String site = new Site().getSite(TelaCadastrar.txtPgn.getText());
+                System.out.println("Site------> " + site);
+                String date = new Date().getDate(TelaCadastrar.txtPgn.getText());
+                System.out.println("Date------> " + date);
                 String white = new White().getWhite(TelaCadastrar.txtPgn.getText());
                 System.out.println("White------> " + white);
                 String black = new Black().getBlack(TelaCadastrar.txtPgn.getText());
                 System.out.println("Black------> " + black);
+                
+                String utcdate = new UTCDate().getUTCDate(TelaCadastrar.txtPgn.getText());
+                System.out.println("UTCDate------> " + utcdate);
+                String utctime = new UTCTime().getUTCTime(TelaCadastrar.txtPgn.getText());
+                System.out.println("UTCTime------> " + utctime);
+                String whiteelo = new WhiteElo().getWhiteElo(TelaCadastrar.txtPgn.getText());
+                System.out.println("WhiteElo------> " + whiteelo);
+                String blackelo = new BlackElo().getBlackElo(TelaCadastrar.txtPgn.getText());
+                System.out.println("BlackElo------> " + blackelo);
+                
+                String timecontrol = new TimeControl().getTimeControl(TelaCadastrar.txtPgn.getText());
+                System.out.println("Timecontrol------> " + timecontrol);
+                String eco = new ECO().getEco(TelaCadastrar.txtPgn.getText());
+                System.out.println("ECO------> " + eco);
+                String opening = new Opening().getOpening(TelaCadastrar.txtPgn.getText());
+                System.out.println("Opening------> " + opening);
+                String termination = new Termination().getTermination(TelaCadastrar.txtPgn.getText());
+                System.out.println("Termination------> " + termination);
+                String annotator = new Annotator().getAnnotator(TelaCadastrar.txtPgn.getText());
+                System.out.println("Annotator------> " + annotator);
+                String round = new Round().getRound(TelaCadastrar.txtPgn.getText());
+                System.out.println("Round------> " + round);
 
             }
 
