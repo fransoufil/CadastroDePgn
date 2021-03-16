@@ -2,40 +2,31 @@ package models.DataPgn;
 
 public class UTCDate {
 
+    String UTCDate, txtsemUTCDate;
+    int chaveiniciodoUTCDate, posicaoinicialdoUTCDate, chavefinaldoUTCDate, posicaofinaldoUTCDate;
+    
     public String getUTCDate(String pgn) {
-
-        String utcdate;
         
-        int chaveiniciodoutcdate = pgn.indexOf("[UTCDate ");
-
-        if (chaveiniciodoutcdate == -1) {
-            
-            utcdate = "ND";
+        UTCDate = "[UTCDate ";
         
+        chaveiniciodoUTCDate = pgn.indexOf(UTCDate);
+
+        if (chaveiniciodoUTCDate == -1) {
+            UTCDate = "ND";
         } else {
+            posicaoinicialdoUTCDate = chaveiniciodoUTCDate + (UTCDate.length() + 1);
+            txtsemUTCDate = pgn.substring(posicaoinicialdoUTCDate);
+            chavefinaldoUTCDate = txtsemUTCDate.indexOf("]");
+            posicaofinaldoUTCDate = posicaoinicialdoUTCDate + chavefinaldoUTCDate - 1;
+            UTCDate = pgn.substring(posicaoinicialdoUTCDate, posicaofinaldoUTCDate);
 
-            int posicaoinicialdoutcdate = chaveiniciodoutcdate + 10;
-
-            String txtsemutcdate = pgn.substring(posicaoinicialdoutcdate);
-
-            int chavefinaldoutcdate = txtsemutcdate.indexOf("]");
-            int posicaofinaldoutcdate = posicaoinicialdoutcdate + chavefinaldoutcdate - 1;
-
-            utcdate = pgn.substring(posicaoinicialdoutcdate, posicaofinaldoutcdate);
-
-            if (utcdate.equals("")) {
-                
-                utcdate = "ND";
-                
+            if (UTCDate.equals("")) {                
+                UTCDate = "ND";
             } else {
-                
-                utcdate = utcdate.replace(".", "/");
-                utcdate = utcdate.replace("/ ", "/");
-                
+                UTCDate = UTCDate.replace(".", "/");
+                UTCDate = UTCDate.replace("/ ", "/");
             }
-
         }
-
-        return utcdate;
+        return UTCDate;
     }
 }

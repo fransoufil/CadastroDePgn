@@ -2,39 +2,31 @@ package models.DataPgn;
 
 public class Site {
 
+    String Site, txtsemSite;
+    int chaveiniciodoSite, posicaoinicialdoSite, chavefinaldoSite, posicaofinaldoSite;
+    
     public String getSite(String pgn) {
-
-        String site;
-        int chaveiniciodosite = pgn.indexOf("[Site ");
-
-        if (chaveiniciodosite == -1) {
-            
-            site = "ND";
         
+        Site = "[Site ";
+        
+        chaveiniciodoSite = pgn.indexOf(Site);
+
+        if (chaveiniciodoSite == -1) {
+            Site = "ND";
         } else {
+            posicaoinicialdoSite = chaveiniciodoSite + (Site.length() + 1);
+            txtsemSite = pgn.substring(posicaoinicialdoSite);
+            chavefinaldoSite = txtsemSite.indexOf("]");
+            posicaofinaldoSite = posicaoinicialdoSite + chavefinaldoSite - 1;
+            Site = pgn.substring(posicaoinicialdoSite, posicaofinaldoSite);
 
-            int posicaoinicialdosite = chaveiniciodosite + 7;
-
-            String txtsemsite = pgn.substring(posicaoinicialdosite);
-
-            int chavefinaldosite = txtsemsite.indexOf("]");
-            int posicaofinaldosite = posicaoinicialdosite + chavefinaldosite - 1;
-
-            site = pgn.substring(posicaoinicialdosite, posicaofinaldosite);
-
-            if (site.equals("")) {
-                
-                site = "ND";
-                
+            if (Site.equals("")) {                
+                Site = "ND";
             } else {
-                
-                site = site.replace(".", "/");
-                site = site.replace("/ ", "/");
-                
+                Site = Site.replace(".", "/");
+                Site = Site.replace("/ ", "/");
             }
-
         }
-
-        return site;
+        return Site;
     }
 }

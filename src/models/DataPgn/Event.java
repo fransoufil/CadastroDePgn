@@ -2,39 +2,31 @@ package models.DataPgn;
 
 public class Event {
 
+    String Event, txtsemEvent;
+    int chaveiniciodoEvent, posicaoinicialdoEvent, chavefinaldoEvent, posicaofinaldoEvent;
+    
     public String getEvent(String pgn) {
-
-        String event;
-        int chaveiniciodoevent = pgn.indexOf("[Event ");
-
-        if (chaveiniciodoevent == -1) {
-            
-            event = "ND";
         
+        Event = "[Event ";
+        
+        chaveiniciodoEvent = pgn.indexOf(Event);
+
+        if (chaveiniciodoEvent == -1) {
+            Event = "ND";
         } else {
+            posicaoinicialdoEvent = chaveiniciodoEvent + (Event.length() + 1);
+            txtsemEvent = pgn.substring(posicaoinicialdoEvent);
+            chavefinaldoEvent = txtsemEvent.indexOf("]");
+            posicaofinaldoEvent = posicaoinicialdoEvent + chavefinaldoEvent - 1;
+            Event = pgn.substring(posicaoinicialdoEvent, posicaofinaldoEvent);
 
-            int posicaoinicialdoevent = chaveiniciodoevent + 8;
-
-            String txtsemevent = pgn.substring(posicaoinicialdoevent);
-
-            int chavefinaldoevent = txtsemevent.indexOf("]");
-            int posicaofinaldoevent = posicaoinicialdoevent + chavefinaldoevent - 1;
-
-            event = pgn.substring(posicaoinicialdoevent, posicaofinaldoevent);
-
-            if (event.equals("")) {
-                
-                event = "ND";
-                
+            if (Event.equals("")) {                
+                Event = "ND";
             } else {
-                
-                event = event.replace(".", "/");
-                event = event.replace("/ ", "/");
-                
+                Event = Event.replace(".", "/");
+                Event = Event.replace("/ ", "/");
             }
-
         }
-
-        return event;
+        return Event;
     }
 }

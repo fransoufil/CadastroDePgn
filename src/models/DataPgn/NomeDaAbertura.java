@@ -2,13 +2,13 @@ package models.DataPgn;
 
 public class NomeDaAbertura {
 
+    String nomedaabertura;
+    
     public String getNomeDaAbertura(String abertura, String cordaspecas) {
-
-        String nomedaabertura;
-
+        
         if (cordaspecas.equals("BRANCAS")) {
-            
-            nomedaabertura = switch (abertura.replace(" ", "")) {
+            nomedaabertura = switch (abertura.replace(" ", "")) 
+            {
                 case "1.a3a6" -> "1. a3 a6";
                 case "1.a3a5" -> "1. a3 a5";
                 case "1.a3b6" -> "1. a3 b6";
@@ -392,8 +392,8 @@ public class NomeDaAbertura {
                 default -> abertura;
             };
         } else {
-
-            nomedaabertura = switch (abertura.replace(" ", "")) {
+            nomedaabertura = switch (abertura.replace(" ", "")) 
+            {
                 case "1.a3a6" -> "1. a3 a6";
                 case "1.a3a5" -> "1. a3 a5";
                 case "1.a3b6" -> "1. a3 b6";
@@ -777,7 +777,6 @@ public class NomeDaAbertura {
                 default -> abertura;
             };
         }
-
         return nomedaabertura;
     }
 }

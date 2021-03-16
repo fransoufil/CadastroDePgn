@@ -2,40 +2,31 @@ package models.DataPgn;
 
 public class UTCTime {
 
+    String UTCTime, txtsemUTCTime;
+    int chaveiniciodoUTCTime, posicaoinicialdoUTCTime, chavefinaldoUTCTime, posicaofinaldoUTCTime;
+    
     public String getUTCTime(String pgn) {
-
-        String utctime;
         
-        int chaveiniciodoutctime = pgn.indexOf("[UTCTime ");
-
-        if (chaveiniciodoutctime == -1) {
-            
-            utctime = "ND";
+        UTCTime = "[UTCTime ";
         
+        chaveiniciodoUTCTime = pgn.indexOf(UTCTime);
+
+        if (chaveiniciodoUTCTime == -1) {
+            UTCTime = "ND";
         } else {
+            posicaoinicialdoUTCTime = chaveiniciodoUTCTime + (UTCTime.length() + 1);
+            txtsemUTCTime = pgn.substring(posicaoinicialdoUTCTime);
+            chavefinaldoUTCTime = txtsemUTCTime.indexOf("]");
+            posicaofinaldoUTCTime = posicaoinicialdoUTCTime + chavefinaldoUTCTime - 1;
+            UTCTime = pgn.substring(posicaoinicialdoUTCTime, posicaofinaldoUTCTime);
 
-            int posicaoinicialdoutctime = chaveiniciodoutctime + 10;
-
-            String txtsemutctime = pgn.substring(posicaoinicialdoutctime);
-
-            int chavefinaldoutctime = txtsemutctime.indexOf("]");
-            int posicaofinaldoutctime = posicaoinicialdoutctime + chavefinaldoutctime - 1;
-
-            utctime = pgn.substring(posicaoinicialdoutctime, posicaofinaldoutctime);
-
-            if (utctime.equals("")) {
-                
-                utctime = "ND";
-                
+            if (UTCTime.equals("")) {                
+                UTCTime = "ND";
             } else {
-                
-                utctime = utctime.replace(".", "/");
-                utctime = utctime.replace("/ ", "/");
-                
+                UTCTime = UTCTime.replace(".", "/");
+                UTCTime = UTCTime.replace("/ ", "/");
             }
-
         }
-
-        return utctime;
+        return UTCTime;
     }
 }

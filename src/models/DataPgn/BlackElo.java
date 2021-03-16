@@ -2,40 +2,31 @@ package models.DataPgn;
 
 public class BlackElo {
 
+    String BlackElo, txtsemBlackElo;
+    int chaveiniciodoBlackElo, posicaoinicialdoBlackElo, chavefinaldoBlackElo, posicaofinaldoBlackElo;
+    
     public String getBlackElo(String pgn) {
-
-        String blackelo;
         
-        int chaveiniciodoblackelo = pgn.indexOf("[BlackElo ");
-
-        if (chaveiniciodoblackelo == -1) {
-            
-            blackelo = "ND";
+        BlackElo = "[BlackElo ";
         
+        chaveiniciodoBlackElo = pgn.indexOf(BlackElo);
+
+        if (chaveiniciodoBlackElo == -1) {
+            BlackElo = "ND";
         } else {
+            posicaoinicialdoBlackElo = chaveiniciodoBlackElo + (BlackElo.length() + 1);
+            txtsemBlackElo = pgn.substring(posicaoinicialdoBlackElo);
+            chavefinaldoBlackElo = txtsemBlackElo.indexOf("]");
+            posicaofinaldoBlackElo = posicaoinicialdoBlackElo + chavefinaldoBlackElo - 1;
+            BlackElo = pgn.substring(posicaoinicialdoBlackElo, posicaofinaldoBlackElo);
 
-            int posicaoinicialdoblackelo = chaveiniciodoblackelo + 11;
-
-            String txtsemblackelo = pgn.substring(posicaoinicialdoblackelo);
-
-            int chavefinaldoblackelo = txtsemblackelo.indexOf("]");
-            int posicaofinaldoblackelo = posicaoinicialdoblackelo + chavefinaldoblackelo - 1;
-
-            blackelo = pgn.substring(posicaoinicialdoblackelo, posicaofinaldoblackelo);
-
-            if (blackelo.equals("")) {
-                
-                blackelo = "ND";
-                
+            if (BlackElo.equals("")) {                
+                BlackElo = "ND";
             } else {
-                
-                blackelo = blackelo.replace(".", "/");
-                blackelo = blackelo.replace("/ ", "/");
-                
+                BlackElo = BlackElo.replace(".", "/");
+                BlackElo = BlackElo.replace("/ ", "/");
             }
-
         }
-
-        return blackelo;
+        return BlackElo;
     }
 }

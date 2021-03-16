@@ -2,40 +2,31 @@ package models.DataPgn;
 
 public class Termination {
 
+    String Termination, txtsemTermination;
+    int chaveiniciodoTermination, posicaoinicialdoTermination, chavefinaldoTermination, posicaofinaldoTermination;
+    
     public String getTermination(String pgn) {
-
-        String termination;
         
-        int chaveiniciodotermination = pgn.indexOf("[Termination ");
-
-        if (chaveiniciodotermination == -1) {
-            
-            termination = "ND";
+        Termination = "[Termination ";
         
+        chaveiniciodoTermination = pgn.indexOf(Termination);
+
+        if (chaveiniciodoTermination == -1) {
+            Termination = "ND";
         } else {
+            posicaoinicialdoTermination = chaveiniciodoTermination + (Termination.length() + 1);
+            txtsemTermination = pgn.substring(posicaoinicialdoTermination);
+            chavefinaldoTermination = txtsemTermination.indexOf("]");
+            posicaofinaldoTermination = posicaoinicialdoTermination + chavefinaldoTermination - 1;
+            Termination = pgn.substring(posicaoinicialdoTermination, posicaofinaldoTermination);
 
-            int posicaoinicialdotermination = chaveiniciodotermination + 14;
-
-            String txtsemtermination = pgn.substring(posicaoinicialdotermination);
-
-            int chavefinaldotermination = txtsemtermination.indexOf("]");
-            int posicaofinaldotermination = posicaoinicialdotermination + chavefinaldotermination - 1;
-
-            termination = pgn.substring(posicaoinicialdotermination, posicaofinaldotermination);
-
-            if (termination.equals("")) {
-                
-                termination = "ND";
-                
+            if (Termination.equals("")) {                
+                Termination = "ND";
             } else {
-                
-                termination = termination.replace(".", "/");
-                termination = termination.replace("/ ", "/");
-                
+                Termination = Termination.replace(".", "/");
+                Termination = Termination.replace("/ ", "/");
             }
-
         }
-
-        return termination;
+        return Termination;
     }
 }

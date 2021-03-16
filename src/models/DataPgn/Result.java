@@ -2,39 +2,31 @@ package models.DataPgn;
 
 public class Result {
 
+    String Result, txtsemResult;
+    int chaveiniciodoResult, posicaoinicialdoResult, chavefinaldoResult, posicaofinaldoResult;
+    
     public String getResult(String pgn) {
-
-        String result;
-        int chaveiniciodoresult = pgn.indexOf("[Result ");
-
-        if (chaveiniciodoresult == -1) {
-            
-            result = "ND";
         
+        Result = "[Result ";
+        
+        chaveiniciodoResult = pgn.indexOf(Result);
+
+        if (chaveiniciodoResult == -1) {
+            Result = "ND";
         } else {
+            posicaoinicialdoResult = chaveiniciodoResult + (Result.length() + 1);
+            txtsemResult = pgn.substring(posicaoinicialdoResult);
+            chavefinaldoResult = txtsemResult.indexOf("]");
+            posicaofinaldoResult = posicaoinicialdoResult + chavefinaldoResult - 1;
+            Result = pgn.substring(posicaoinicialdoResult, posicaofinaldoResult);
 
-            int posicaoinicialdoresult = chaveiniciodoresult + 9;
-
-            String txtsemresult = pgn.substring(posicaoinicialdoresult);
-
-            int chavefinaldoresult = txtsemresult.indexOf("]");
-            int posicaofinaldoresult = posicaoinicialdoresult + chavefinaldoresult - 1;
-
-            result = pgn.substring(posicaoinicialdoresult, posicaofinaldoresult);
-
-            if (result.equals("")) {
-                
-                result = "ND";
-                
+            if (Result.equals("")) {                
+                Result = "ND";
             } else {
-                
-                result = result.replace(".", "/");
-                result = result.replace("/ ", "/");
-                
+                Result = Result.replace(".", "/");
+                Result = Result.replace("/ ", "/");
             }
-
         }
-
-        return result;
+        return Result;
     }
 }

@@ -2,43 +2,31 @@ package models.DataPgn;
 
 public class Date {
 
+    String Date, txtsemDate;
+    int chaveiniciodoDate, posicaoinicialdoDate, chavefinaldoDate, posicaofinaldoDate;
+    
     public String getDate(String pgn) {
+        
+        Date = "[Date ";
+        
+        chaveiniciodoDate = pgn.indexOf(Date);
 
-        String date;
-        
-        pgn = pgn.replace(".??", "/??");
-        pgn = pgn.replace("??", "2");
-        
-        int chaveiniciododate = pgn.indexOf("[Date ");
-
-        if (chaveiniciododate == -1) {
-            
-            date = "ND";
-        
+        if (chaveiniciodoDate == -1) {
+            Date = "ND";
         } else {
+            posicaoinicialdoDate = chaveiniciodoDate + (Date.length() + 1);
+            txtsemDate = pgn.substring(posicaoinicialdoDate);
+            chavefinaldoDate = txtsemDate.indexOf("]");
+            posicaofinaldoDate = posicaoinicialdoDate + chavefinaldoDate - 1;
+            Date = pgn.substring(posicaoinicialdoDate, posicaofinaldoDate);
 
-            int posicaoinicialdodate = chaveiniciododate + 7;
-
-            String txtsemdate = pgn.substring(posicaoinicialdodate);
-
-            int chavefinaldodate = txtsemdate.indexOf("]");
-            int posicaofinaldodate = posicaoinicialdodate + chavefinaldodate - 1;
-
-            date = pgn.substring(posicaoinicialdodate, posicaofinaldodate);
-
-            if (date.equals("")) {
-                
-                date = "ND";
-                
+            if (Date.equals("")) {                
+                Date = "ND";
             } else {
-                
-                date = date.replace(".", "/");
-                date = date.replace("/ ", "/");
-                
+                Date = Date.replace(".", "/");
+                Date = Date.replace("/ ", "/");
             }
-
         }
-
-        return date;
+        return Date;
     }
 }

@@ -3,41 +3,32 @@ package models.DataPgn;
 
 public class Black {
     
-    public String getBlack(String pgn){
+    String Black, txtsemBlack;
+    int chaveiniciodoBlack, posicaoinicialdoBlack, chavefinaldoBlack, posicaofinaldoBlack;
+    
+    public String getBlack(String pgn) {
         
-       String black = "";
+        Black = "[Black ";
         
-        int chaveiniciodoblack = pgn.indexOf("[Black ");
+        chaveiniciodoBlack = pgn.indexOf(Black);
 
-        if (chaveiniciodoblack == -1) {
-            
-            black = "ND";
-        
+        if (chaveiniciodoBlack == -1) {
+            Black = "ND";
         } else {
+            posicaoinicialdoBlack = chaveiniciodoBlack + (Black.length() + 1);
+            txtsemBlack = pgn.substring(posicaoinicialdoBlack);
+            chavefinaldoBlack = txtsemBlack.indexOf("]");
+            posicaofinaldoBlack = posicaoinicialdoBlack + chavefinaldoBlack - 1;
+            Black = pgn.substring(posicaoinicialdoBlack, posicaofinaldoBlack);
 
-            int posicaoinicialdoblack = chaveiniciodoblack + 8;
-
-            String txtsemblack = pgn.substring(posicaoinicialdoblack);
-
-            int chavefinaldoblack = txtsemblack.indexOf("]");
-            int posicaofinaldoblack = posicaoinicialdoblack + chavefinaldoblack - 1;
-
-            black = pgn.substring(posicaoinicialdoblack, posicaofinaldoblack);
-
-            if (black.equals("")) {
-                
-                black = "ND";
-                
+            if (Black.equals("")) {                
+                Black = "ND";
             } else {
-                
-                black = black.replace(".", "/");
-                black = black.replace("/ ", "/");
-                
+                Black = Black.replace(".", "/");
+                Black = Black.replace("/ ", "/");
             }
-
         }
-
-        return black;
+        return Black;
     }
     
 }

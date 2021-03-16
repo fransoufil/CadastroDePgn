@@ -1,40 +1,53 @@
 package models.DataPgn;
 
 public class Annotator {
-
+    
+    String Annotator;
+    
     public String getAnnotator(String pgn) {
-
-        String annotator;
-        int chaveiniciodoannotator = pgn.indexOf("[Annotator ");
-
-        if (chaveiniciodoannotator == -1) {
-            
-            annotator = "ND";
         
+        Annotator = "[Annotator ";
+
+        if (!pgn.contains(Annotator)) {
+            Annotator = "ND";
         } else {
+            Annotator = pgn.substring(pgn.indexOf(Annotator) + Annotator.length() + 1, 
+                    pgn.indexOf(Annotator) + Annotator.length() + 1 + pgn.substring(pgn.indexOf(Annotator) + Annotator.length() + 1).indexOf("]") - 1);
 
-            int posicaoinicialdoannotator = chaveiniciodoannotator + 12;
-
-            String txtsemannotator = pgn.substring(posicaoinicialdoannotator);
-
-            int chavefinaldoannotator = txtsemannotator.indexOf("]");
-            int posicaofinaldoannotator = posicaoinicialdoannotator + chavefinaldoannotator - 1;
-
-            annotator = pgn.substring(posicaoinicialdoannotator, posicaofinaldoannotator);
-
-            if (annotator.equals("")) {
-                
-                annotator = "ND";
-                
+            if (Annotator.equals("")) {                
+                Annotator = "ND";
             } else {
-                
-                annotator = annotator.replace(".", "/");
-                annotator = annotator.replace("/ ", "/");
-                
+                Annotator = Annotator.replace(".", "/");
+                Annotator = Annotator.replace("/ ", "/");
             }
-
         }
-
-        return annotator;
+        return Annotator;
     }
+    
+    //ABOVE THE OLD ONE CODE - THE SAME THAT ARE IN THE OTHERS CLASS
+    
+//    public String getAnnotator(String pgn) {
+//        
+//        Annotator = "[Annotator ";
+//        
+//        chaveiniciodoAnnotator = pgn.indexOf(Annotator);
+//
+//        if (chaveiniciodoAnnotator == -1) {
+//            Annotator = "ND";
+//        } else {
+//            posicaoinicialdoAnnotator = chaveiniciodoAnnotator + (Annotator.length() + 1);
+//            txtsemAnnotator = pgn.substring(posicaoinicialdoAnnotator);
+//            chavefinaldoAnnotator = txtsemAnnotator.indexOf("]");
+//            posicaofinaldoAnnotator = posicaoinicialdoAnnotator + chavefinaldoAnnotator - 1;
+//            Annotator = pgn.substring(posicaoinicialdoAnnotator, posicaofinaldoAnnotator);
+//
+//            if (Annotator.equals("")) {                
+//                Annotator = "ND";
+//            } else {
+//                Annotator = Annotator.replace(".", "/");
+//                Annotator = Annotator.replace("/ ", "/");
+//            }
+//        }
+//        return Annotator;
+//    }
 }

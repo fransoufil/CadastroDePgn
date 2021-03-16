@@ -2,40 +2,31 @@ package models.DataPgn;
 
 public class Opening {
 
+    String Opening, txtsemOpening;
+    int chaveiniciodoOpening, posicaoinicialdoOpening, chavefinaldoOpening, posicaofinaldoOpening;
+    
     public String getOpening(String pgn) {
-
-        String opening;
         
-        int chaveiniciodoopening = pgn.indexOf("[Opening ");
-
-        if (chaveiniciodoopening == -1) {
-            
-            opening = "ND";
+        Opening = "[Opening ";
         
+        chaveiniciodoOpening = pgn.indexOf(Opening);
+
+        if (chaveiniciodoOpening == -1) {
+            Opening = "ND";
         } else {
+            posicaoinicialdoOpening = chaveiniciodoOpening + (Opening.length() + 1);
+            txtsemOpening = pgn.substring(posicaoinicialdoOpening);
+            chavefinaldoOpening = txtsemOpening.indexOf("]");
+            posicaofinaldoOpening = posicaoinicialdoOpening + chavefinaldoOpening - 1;
+            Opening = pgn.substring(posicaoinicialdoOpening, posicaofinaldoOpening);
 
-            int posicaoinicialdoopening = chaveiniciodoopening + 7;
-
-            String txtsemopening = pgn.substring(posicaoinicialdoopening);
-
-            int chavefinaldoopening = txtsemopening.indexOf("]");
-            int posicaofinaldoopening = posicaoinicialdoopening + chavefinaldoopening - 1;
-
-            opening = pgn.substring(posicaoinicialdoopening, posicaofinaldoopening);
-
-            if (opening.equals("")) {
-                
-                opening = "ND";
-                
+            if (Opening.equals("")) {                
+                Opening = "ND";
             } else {
-                
-                opening = opening.replace(".", "/");
-                opening = opening.replace("/ ", "/");
-                
+                Opening = Opening.replace(".", "/");
+                Opening = Opening.replace("/ ", "/");
             }
-
         }
-
-        return opening;
+        return Opening;
     }
 }

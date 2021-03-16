@@ -3,41 +3,32 @@ package models.DataPgn;
 
 public class White {
     
-    public String getWhite(String pgn){
+   String White, txtsemWhite;
+    int chaveiniciodoWhite, posicaoinicialdoWhite, chavefinaldoWhite, posicaofinaldoWhite;
+    
+    public String getWhite(String pgn) {
         
-        String white = "";
+        White = "[White ";
         
-        int chaveiniciodowhite = pgn.indexOf("[White ");
+        chaveiniciodoWhite = pgn.indexOf(White);
 
-        if (chaveiniciodowhite == -1) {
-            
-            white = "ND";
-        
+        if (chaveiniciodoWhite == -1) {
+            White = "ND";
         } else {
+            posicaoinicialdoWhite = chaveiniciodoWhite + (White.length() + 1);
+            txtsemWhite = pgn.substring(posicaoinicialdoWhite);
+            chavefinaldoWhite = txtsemWhite.indexOf("]");
+            posicaofinaldoWhite = posicaoinicialdoWhite + chavefinaldoWhite - 1;
+            White = pgn.substring(posicaoinicialdoWhite, posicaofinaldoWhite);
 
-            int posicaoinicialdowhite = chaveiniciodowhite + 8;
-
-            String txtsemwhite = pgn.substring(posicaoinicialdowhite);
-
-            int chavefinaldowhite = txtsemwhite.indexOf("]");
-            int posicaofinaldowhite = posicaoinicialdowhite + chavefinaldowhite - 1;
-
-            white = pgn.substring(posicaoinicialdowhite, posicaofinaldowhite);
-
-            if (white.equals("")) {
-                
-                white = "ND";
-                
+            if (White.equals("")) {                
+                White = "ND";
             } else {
-                
-                white = white.replace(".", "/");
-                white = white.replace("/ ", "/");
-                
+                White = White.replace(".", "/");
+                White = White.replace("/ ", "/");
             }
-
         }
-
-        return white;
+        return White;
     }
     
 }

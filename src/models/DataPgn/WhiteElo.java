@@ -2,40 +2,31 @@ package models.DataPgn;
 
 public class WhiteElo {
 
+    String WhiteElo, txtsemWhiteElo;
+    int chaveiniciodoWhiteElo, posicaoinicialdoWhiteElo, chavefinaldoWhiteElo, posicaofinaldoWhiteElo;
+    
     public String getWhiteElo(String pgn) {
-
-        String whiteelo;
         
-        int chaveiniciodowhiteelo = pgn.indexOf("[WhiteElo ");
-
-        if (chaveiniciodowhiteelo == -1) {
-            
-            whiteelo = "ND";
+        WhiteElo = "[WhiteElo ";
         
+        chaveiniciodoWhiteElo = pgn.indexOf(WhiteElo);
+
+        if (chaveiniciodoWhiteElo == -1) {
+            WhiteElo = "ND";
         } else {
+            posicaoinicialdoWhiteElo = chaveiniciodoWhiteElo + (WhiteElo.length() + 1);
+            txtsemWhiteElo = pgn.substring(posicaoinicialdoWhiteElo);
+            chavefinaldoWhiteElo = txtsemWhiteElo.indexOf("]");
+            posicaofinaldoWhiteElo = posicaoinicialdoWhiteElo + chavefinaldoWhiteElo - 1;
+            WhiteElo = pgn.substring(posicaoinicialdoWhiteElo, posicaofinaldoWhiteElo);
 
-            int posicaoinicialdowhiteelo = chaveiniciodowhiteelo + 11;
-
-            String txtsemwhiteelo = pgn.substring(posicaoinicialdowhiteelo);
-
-            int chavefinaldowhiteelo = txtsemwhiteelo.indexOf("]");
-            int posicaofinaldowhiteelo = posicaoinicialdowhiteelo + chavefinaldowhiteelo - 1;
-
-            whiteelo = pgn.substring(posicaoinicialdowhiteelo, posicaofinaldowhiteelo);
-
-            if (whiteelo.equals("")) {
-                
-                whiteelo = "ND";
-                
+            if (WhiteElo.equals("")) {                
+                WhiteElo = "ND";
             } else {
-                
-                whiteelo = whiteelo.replace(".", "/");
-                whiteelo = whiteelo.replace("/ ", "/");
-                
+                WhiteElo = WhiteElo.replace(".", "/");
+                WhiteElo = WhiteElo.replace("/ ", "/");
             }
-
         }
-
-        return whiteelo;
+        return WhiteElo;
     }
 }

@@ -2,39 +2,31 @@ package models.DataPgn;
 
 public class Round {
 
+    String Round, txtsemRound;
+    int chaveiniciodoRound, posicaoinicialdoRound, chavefinaldoRound, posicaofinaldoRound;
+    
     public String getRound(String pgn) {
-
-        String round;
-        int chaveiniciodoround = pgn.indexOf("[Round ");
-
-        if (chaveiniciodoround == -1) {
-            
-            round = "ND";
         
+        Round = "[Round ";
+        
+        chaveiniciodoRound = pgn.indexOf(Round);
+
+        if (chaveiniciodoRound == -1) {
+            Round = "ND";
         } else {
+            posicaoinicialdoRound = chaveiniciodoRound + (Round.length() + 1);
+            txtsemRound = pgn.substring(posicaoinicialdoRound);
+            chavefinaldoRound = txtsemRound.indexOf("]");
+            posicaofinaldoRound = posicaoinicialdoRound + chavefinaldoRound - 1;
+            Round = pgn.substring(posicaoinicialdoRound, posicaofinaldoRound);
 
-            int posicaoinicialdoround = chaveiniciodoround + 8;
-
-            String txtsemround = pgn.substring(posicaoinicialdoround);
-
-            int chavefinaldoround = txtsemround.indexOf("]");
-            int posicaofinaldoround = posicaoinicialdoround + chavefinaldoround - 1;
-
-            round = pgn.substring(posicaoinicialdoround, posicaofinaldoround);
-
-            if (round.equals("")) {
-                
-                round = "ND";
-                
+            if (Round.equals("")) {                
+                Round = "ND";
             } else {
-                
-                round = round.replace(".", "/");
-                round = round.replace("/ ", "/");
-                
+                Round = Round.replace(".", "/");
+                Round = Round.replace("/ ", "/");
             }
-
         }
-
-        return round;
+        return Round;
     }
 }

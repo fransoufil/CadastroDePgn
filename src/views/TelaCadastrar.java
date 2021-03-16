@@ -254,7 +254,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
         jLabel8.setText("SEQUENCIA INICIAL:");
 
         txtSequenciaInicial.setBackground(java.awt.Color.yellow);
-        txtSequenciaInicial.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtSequenciaInicial.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtSequenciaInicial.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSequenciaInicial.setText("SEQUENCIA INICIAL");
         txtSequenciaInicial.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -655,7 +655,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 
                 String timecontrol = new TimeControl().getTimeControl(TelaCadastrar.txtPgn.getText());
                 System.out.println("Timecontrol------> " + timecontrol);
-                String eco = new ECO().getEco(TelaCadastrar.txtPgn.getText());
+                String eco = new ECO().getECO(TelaCadastrar.txtPgn.getText());
                 System.out.println("ECO------> " + eco);
                 String opening = new Opening().getOpening(TelaCadastrar.txtPgn.getText());
                 System.out.println("Opening------> " + opening);

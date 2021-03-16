@@ -2,40 +2,31 @@ package models.DataPgn;
 
 public class TimeControl {
 
+    String TimeControl, txtsemTimeControl;
+    int chaveiniciodoTimeControl, posicaoinicialdoTimeControl, chavefinaldoTimeControl, posicaofinaldoTimeControl;
+    
     public String getTimeControl(String pgn) {
-
-        String timecontrol;
         
-        int chaveiniciodotimecontrol = pgn.indexOf("[TimeControl ");
-
-        if (chaveiniciodotimecontrol == -1) {
-            
-            timecontrol = "ND";
+        TimeControl = "[TimeControl ";
         
+        chaveiniciodoTimeControl = pgn.indexOf(TimeControl);
+
+        if (chaveiniciodoTimeControl == -1) {
+            TimeControl = "ND";
         } else {
+            posicaoinicialdoTimeControl = chaveiniciodoTimeControl + (TimeControl.length() + 1);
+            txtsemTimeControl = pgn.substring(posicaoinicialdoTimeControl);
+            chavefinaldoTimeControl = txtsemTimeControl.indexOf("]");
+            posicaofinaldoTimeControl = posicaoinicialdoTimeControl + chavefinaldoTimeControl - 1;
+            TimeControl = pgn.substring(posicaoinicialdoTimeControl, posicaofinaldoTimeControl);
 
-            int posicaoinicialdotimecontrol = chaveiniciodotimecontrol + 14;
-
-            String txtsemtimecontrol = pgn.substring(posicaoinicialdotimecontrol);
-
-            int chavefinaldotimecontrol = txtsemtimecontrol.indexOf("]");
-            int posicaofinaldotimecontrol = posicaoinicialdotimecontrol + chavefinaldotimecontrol - 1;
-
-            timecontrol = pgn.substring(posicaoinicialdotimecontrol, posicaofinaldotimecontrol);
-
-            if (timecontrol.equals("")) {
-                
-                timecontrol = "ND";
-                
+            if (TimeControl.equals("")) {                
+                TimeControl = "ND";
             } else {
-                
-                timecontrol = timecontrol.replace(".", "/");
-                timecontrol = timecontrol.replace("/ ", "/");
-                
+                TimeControl = TimeControl.replace(".", "/");
+                TimeControl = TimeControl.replace("/ ", "/");
             }
-
         }
-
-        return timecontrol;
+        return TimeControl;
     }
 }
