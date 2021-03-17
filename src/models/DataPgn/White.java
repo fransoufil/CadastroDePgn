@@ -1,27 +1,20 @@
-
 package models.DataPgn;
 
 public class White {
     
-   String White, txtsemWhite;
-    int chaveiniciodoWhite, posicaoinicialdoWhite, chavefinaldoWhite, posicaofinaldoWhite;
-    
-    public String getWhite(String pgn) {
-        
-        White = "[White ";
-        
-        chaveiniciodoWhite = pgn.indexOf(White);
+   String White;
 
-        if (chaveiniciodoWhite == -1) {
+    public String getWhite(String pgn) {
+
+        White = "[White ";
+
+        if (!pgn.contains(White)) {
             White = "ND";
         } else {
-            posicaoinicialdoWhite = chaveiniciodoWhite + (White.length() + 1);
-            txtsemWhite = pgn.substring(posicaoinicialdoWhite);
-            chavefinaldoWhite = txtsemWhite.indexOf("]");
-            posicaofinaldoWhite = posicaoinicialdoWhite + chavefinaldoWhite - 1;
-            White = pgn.substring(posicaoinicialdoWhite, posicaofinaldoWhite);
+            White = pgn.substring(pgn.indexOf(White) + White.length() + 1,
+                    pgn.indexOf(White) + White.length() + 1 + pgn.substring(pgn.indexOf(White) + White.length() + 1).indexOf("]") - 1);
 
-            if (White.equals("")) {                
+            if (White.equals("")) {
                 White = "ND";
             } else {
                 White = White.replace(".", "/");

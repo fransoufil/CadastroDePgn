@@ -1,27 +1,20 @@
-
 package models.DataPgn;
 
 public class Black {
     
-    String Black, txtsemBlack;
-    int chaveiniciodoBlack, posicaoinicialdoBlack, chavefinaldoBlack, posicaofinaldoBlack;
-    
-    public String getBlack(String pgn) {
-        
-        Black = "[Black ";
-        
-        chaveiniciodoBlack = pgn.indexOf(Black);
+    String Black;
 
-        if (chaveiniciodoBlack == -1) {
+    public String getBlack(String pgn) {
+
+        Black = "[Black ";
+
+        if (!pgn.contains(Black)) {
             Black = "ND";
         } else {
-            posicaoinicialdoBlack = chaveiniciodoBlack + (Black.length() + 1);
-            txtsemBlack = pgn.substring(posicaoinicialdoBlack);
-            chavefinaldoBlack = txtsemBlack.indexOf("]");
-            posicaofinaldoBlack = posicaoinicialdoBlack + chavefinaldoBlack - 1;
-            Black = pgn.substring(posicaoinicialdoBlack, posicaofinaldoBlack);
+            Black = pgn.substring(pgn.indexOf(Black) + Black.length() + 1,
+                    pgn.indexOf(Black) + Black.length() + 1 + pgn.substring(pgn.indexOf(Black) + Black.length() + 1).indexOf("]") - 1);
 
-            if (Black.equals("")) {                
+            if (Black.equals("")) {
                 Black = "ND";
             } else {
                 Black = Black.replace(".", "/");

@@ -2,25 +2,19 @@ package models.DataPgn;
 
 public class BlackElo {
 
-    String BlackElo, txtsemBlackElo;
-    int chaveiniciodoBlackElo, posicaoinicialdoBlackElo, chavefinaldoBlackElo, posicaofinaldoBlackElo;
-    
-    public String getBlackElo(String pgn) {
-        
-        BlackElo = "[BlackElo ";
-        
-        chaveiniciodoBlackElo = pgn.indexOf(BlackElo);
+    String BlackElo;
 
-        if (chaveiniciodoBlackElo == -1) {
+    public String getBlackElo(String pgn) {
+
+        BlackElo = "[BlackElo ";
+
+        if (!pgn.contains(BlackElo)) {
             BlackElo = "ND";
         } else {
-            posicaoinicialdoBlackElo = chaveiniciodoBlackElo + (BlackElo.length() + 1);
-            txtsemBlackElo = pgn.substring(posicaoinicialdoBlackElo);
-            chavefinaldoBlackElo = txtsemBlackElo.indexOf("]");
-            posicaofinaldoBlackElo = posicaoinicialdoBlackElo + chavefinaldoBlackElo - 1;
-            BlackElo = pgn.substring(posicaoinicialdoBlackElo, posicaofinaldoBlackElo);
+            BlackElo = pgn.substring(pgn.indexOf(BlackElo) + BlackElo.length() + 1,
+                    pgn.indexOf(BlackElo) + BlackElo.length() + 1 + pgn.substring(pgn.indexOf(BlackElo) + BlackElo.length() + 1).indexOf("]") - 1);
 
-            if (BlackElo.equals("")) {                
+            if (BlackElo.equals("")) {
                 BlackElo = "ND";
             } else {
                 BlackElo = BlackElo.replace(".", "/");

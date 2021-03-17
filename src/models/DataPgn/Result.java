@@ -2,25 +2,19 @@ package models.DataPgn;
 
 public class Result {
 
-    String Result, txtsemResult;
-    int chaveiniciodoResult, posicaoinicialdoResult, chavefinaldoResult, posicaofinaldoResult;
-    
-    public String getResult(String pgn) {
-        
-        Result = "[Result ";
-        
-        chaveiniciodoResult = pgn.indexOf(Result);
+    String Result;
 
-        if (chaveiniciodoResult == -1) {
+    public String getResult(String pgn) {
+
+        Result = "[Result ";
+
+        if (!pgn.contains(Result)) {
             Result = "ND";
         } else {
-            posicaoinicialdoResult = chaveiniciodoResult + (Result.length() + 1);
-            txtsemResult = pgn.substring(posicaoinicialdoResult);
-            chavefinaldoResult = txtsemResult.indexOf("]");
-            posicaofinaldoResult = posicaoinicialdoResult + chavefinaldoResult - 1;
-            Result = pgn.substring(posicaoinicialdoResult, posicaofinaldoResult);
+            Result = pgn.substring(pgn.indexOf(Result) + Result.length() + 1,
+                    pgn.indexOf(Result) + Result.length() + 1 + pgn.substring(pgn.indexOf(Result) + Result.length() + 1).indexOf("]") - 1);
 
-            if (Result.equals("")) {                
+            if (Result.equals("")) {
                 Result = "ND";
             } else {
                 Result = Result.replace(".", "/");

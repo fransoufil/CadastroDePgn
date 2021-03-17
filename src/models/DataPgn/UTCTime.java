@@ -2,25 +2,19 @@ package models.DataPgn;
 
 public class UTCTime {
 
-    String UTCTime, txtsemUTCTime;
-    int chaveiniciodoUTCTime, posicaoinicialdoUTCTime, chavefinaldoUTCTime, posicaofinaldoUTCTime;
-    
-    public String getUTCTime(String pgn) {
-        
-        UTCTime = "[UTCTime ";
-        
-        chaveiniciodoUTCTime = pgn.indexOf(UTCTime);
+    String UTCTime;
 
-        if (chaveiniciodoUTCTime == -1) {
+    public String getUTCTime(String pgn) {
+
+        UTCTime = "[UTCTime ";
+
+        if (!pgn.contains(UTCTime)) {
             UTCTime = "ND";
         } else {
-            posicaoinicialdoUTCTime = chaveiniciodoUTCTime + (UTCTime.length() + 1);
-            txtsemUTCTime = pgn.substring(posicaoinicialdoUTCTime);
-            chavefinaldoUTCTime = txtsemUTCTime.indexOf("]");
-            posicaofinaldoUTCTime = posicaoinicialdoUTCTime + chavefinaldoUTCTime - 1;
-            UTCTime = pgn.substring(posicaoinicialdoUTCTime, posicaofinaldoUTCTime);
+            UTCTime = pgn.substring(pgn.indexOf(UTCTime) + UTCTime.length() + 1,
+                    pgn.indexOf(UTCTime) + UTCTime.length() + 1 + pgn.substring(pgn.indexOf(UTCTime) + UTCTime.length() + 1).indexOf("]") - 1);
 
-            if (UTCTime.equals("")) {                
+            if (UTCTime.equals("")) {
                 UTCTime = "ND";
             } else {
                 UTCTime = UTCTime.replace(".", "/");

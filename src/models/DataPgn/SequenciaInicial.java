@@ -1,7 +1,5 @@
 package models.DataPgn;
 
-import javax.swing.JTextArea;
-
 public class SequenciaInicial {
 
     String inicioabertura = "1. ", finalabertura = "7.";

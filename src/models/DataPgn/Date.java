@@ -2,25 +2,19 @@ package models.DataPgn;
 
 public class Date {
 
-    String Date, txtsemDate;
-    int chaveiniciodoDate, posicaoinicialdoDate, chavefinaldoDate, posicaofinaldoDate;
-    
-    public String getDate(String pgn) {
-        
-        Date = "[Date ";
-        
-        chaveiniciodoDate = pgn.indexOf(Date);
+   String Date;
 
-        if (chaveiniciodoDate == -1) {
+    public String getDate(String pgn) {
+
+        Date = "[Date ";
+
+        if (!pgn.contains(Date)) {
             Date = "ND";
         } else {
-            posicaoinicialdoDate = chaveiniciodoDate + (Date.length() + 1);
-            txtsemDate = pgn.substring(posicaoinicialdoDate);
-            chavefinaldoDate = txtsemDate.indexOf("]");
-            posicaofinaldoDate = posicaoinicialdoDate + chavefinaldoDate - 1;
-            Date = pgn.substring(posicaoinicialdoDate, posicaofinaldoDate);
+            Date = pgn.substring(pgn.indexOf(Date) + Date.length() + 1,
+                    pgn.indexOf(Date) + Date.length() + 1 + pgn.substring(pgn.indexOf(Date) + Date.length() + 1).indexOf("]") - 1);
 
-            if (Date.equals("")) {                
+            if (Date.equals("")) {
                 Date = "ND";
             } else {
                 Date = Date.replace(".", "/");

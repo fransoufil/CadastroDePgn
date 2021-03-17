@@ -2,29 +2,24 @@ package models.DataPgn;
 
 public class Opening {
 
-    String Opening, txtsemOpening;
-    int chaveiniciodoOpening, posicaoinicialdoOpening, chavefinaldoOpening, posicaofinaldoOpening;
-    
-    public String getOpening(String pgn) {
-        
-        Opening = "[Opening ";
-        
-        chaveiniciodoOpening = pgn.indexOf(Opening);
+    String Opening;
 
-        if (chaveiniciodoOpening == -1) {
+    public String getOpening(String pgn) {
+
+        Opening = "[Opening ";
+
+        if (!pgn.contains(Opening)) {
             Opening = "ND";
         } else {
-            posicaoinicialdoOpening = chaveiniciodoOpening + (Opening.length() + 1);
-            txtsemOpening = pgn.substring(posicaoinicialdoOpening);
-            chavefinaldoOpening = txtsemOpening.indexOf("]");
-            posicaofinaldoOpening = posicaoinicialdoOpening + chavefinaldoOpening - 1;
-            Opening = pgn.substring(posicaoinicialdoOpening, posicaofinaldoOpening);
+            Opening = pgn.substring(pgn.indexOf(Opening) + Opening.length() + 1,
+                    pgn.indexOf(Opening) + Opening.length() + 1 + pgn.substring(pgn.indexOf(Opening) + Opening.length() + 1).indexOf("]") - 1);
 
-            if (Opening.equals("")) {                
+            if (Opening.equals("")) {
                 Opening = "ND";
             } else {
                 Opening = Opening.replace(".", "/");
                 Opening = Opening.replace("/ ", "/");
+                Opening = Opening.replace("'", "");
             }
         }
         return Opening;

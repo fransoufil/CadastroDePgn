@@ -2,25 +2,19 @@ package models.DataPgn;
 
 public class WhiteElo {
 
-    String WhiteElo, txtsemWhiteElo;
-    int chaveiniciodoWhiteElo, posicaoinicialdoWhiteElo, chavefinaldoWhiteElo, posicaofinaldoWhiteElo;
-    
-    public String getWhiteElo(String pgn) {
-        
-        WhiteElo = "[WhiteElo ";
-        
-        chaveiniciodoWhiteElo = pgn.indexOf(WhiteElo);
+    String WhiteElo;
 
-        if (chaveiniciodoWhiteElo == -1) {
+    public String getWhiteElo(String pgn) {
+
+        WhiteElo = "[WhiteElo ";
+
+        if (!pgn.contains(WhiteElo)) {
             WhiteElo = "ND";
         } else {
-            posicaoinicialdoWhiteElo = chaveiniciodoWhiteElo + (WhiteElo.length() + 1);
-            txtsemWhiteElo = pgn.substring(posicaoinicialdoWhiteElo);
-            chavefinaldoWhiteElo = txtsemWhiteElo.indexOf("]");
-            posicaofinaldoWhiteElo = posicaoinicialdoWhiteElo + chavefinaldoWhiteElo - 1;
-            WhiteElo = pgn.substring(posicaoinicialdoWhiteElo, posicaofinaldoWhiteElo);
+            WhiteElo = pgn.substring(pgn.indexOf(WhiteElo) + WhiteElo.length() + 1,
+                    pgn.indexOf(WhiteElo) + WhiteElo.length() + 1 + pgn.substring(pgn.indexOf(WhiteElo) + WhiteElo.length() + 1).indexOf("]") - 1);
 
-            if (WhiteElo.equals("")) {                
+            if (WhiteElo.equals("")) {
                 WhiteElo = "ND";
             } else {
                 WhiteElo = WhiteElo.replace(".", "/");

@@ -2,33 +2,33 @@ package models.ChangesPgn;
 
 public class EraseClock {
 
+    String eraseclock;
+
+        String beginclock = " { [%clk", endclock = "] } ", iniciopgnsemclock, finalpgnsemclock;
+        int intBeginclock, intEndclock;
+    
     public String eraseClock(String pgn) {
-
-        String eraseclock = "";
-
-        String beginclock = " { [%clk";
-        String endclock = "] } ";
-
-        int intBeginclock = pgn.indexOf(beginclock);
-        int intEndclock = pgn.indexOf(endclock);
-
+        
+        intBeginclock = pgn.indexOf(beginclock);
+        intEndclock = pgn.indexOf(endclock);
+        
         while ((intBeginclock > 0) || intEndclock > 0) {
 
             intBeginclock = pgn.indexOf(beginclock);
             intEndclock = pgn.indexOf(endclock);
 
-            String iniciopgnsemclock = pgn.substring(0, intBeginclock);
-            String finalpgnsemclock = pgn.substring(intEndclock + 3);
+            iniciopgnsemclock = pgn.substring(0, intBeginclock);
+            finalpgnsemclock = pgn.substring(intEndclock + 3);
 
-            eraseclock = iniciopgnsemclock + finalpgnsemclock;
-
-            pgn = eraseclock;
+            pgn = iniciopgnsemclock + finalpgnsemclock;
 
             intBeginclock = pgn.indexOf(beginclock);
             intEndclock = pgn.indexOf(endclock);
 
         }
-        return eraseclock;
+        
+        return pgn;
+        
     }
 
 }

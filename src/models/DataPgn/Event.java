@@ -2,25 +2,19 @@ package models.DataPgn;
 
 public class Event {
 
-    String Event, txtsemEvent;
-    int chaveiniciodoEvent, posicaoinicialdoEvent, chavefinaldoEvent, posicaofinaldoEvent;
-    
-    public String getEvent(String pgn) {
-        
-        Event = "[Event ";
-        
-        chaveiniciodoEvent = pgn.indexOf(Event);
+    String Event;
 
-        if (chaveiniciodoEvent == -1) {
+    public String getEvent(String pgn) {
+
+        Event = "[Event ";
+
+        if (!pgn.contains(Event)) {
             Event = "ND";
         } else {
-            posicaoinicialdoEvent = chaveiniciodoEvent + (Event.length() + 1);
-            txtsemEvent = pgn.substring(posicaoinicialdoEvent);
-            chavefinaldoEvent = txtsemEvent.indexOf("]");
-            posicaofinaldoEvent = posicaoinicialdoEvent + chavefinaldoEvent - 1;
-            Event = pgn.substring(posicaoinicialdoEvent, posicaofinaldoEvent);
+            Event = pgn.substring(pgn.indexOf(Event) + Event.length() + 1,
+                    pgn.indexOf(Event) + Event.length() + 1 + pgn.substring(pgn.indexOf(Event) + Event.length() + 1).indexOf("]") - 1);
 
-            if (Event.equals("")) {                
+            if (Event.equals("")) {
                 Event = "ND";
             } else {
                 Event = Event.replace(".", "/");

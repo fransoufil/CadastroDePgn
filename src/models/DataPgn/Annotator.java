@@ -16,9 +16,6 @@ public class Annotator {
 
             if (Annotator.equals("")) {                
                 Annotator = "ND";
-            } else {
-                Annotator = Annotator.replace(".", "/");
-                Annotator = Annotator.replace("/ ", "/");
             }
         }
         return Annotator;

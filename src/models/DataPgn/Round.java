@@ -2,25 +2,19 @@ package models.DataPgn;
 
 public class Round {
 
-    String Round, txtsemRound;
-    int chaveiniciodoRound, posicaoinicialdoRound, chavefinaldoRound, posicaofinaldoRound;
-    
-    public String getRound(String pgn) {
-        
-        Round = "[Round ";
-        
-        chaveiniciodoRound = pgn.indexOf(Round);
+    String Round;
 
-        if (chaveiniciodoRound == -1) {
+    public String getRound(String pgn) {
+
+        Round = "[Round ";
+
+        if (!pgn.contains(Round)) {
             Round = "ND";
         } else {
-            posicaoinicialdoRound = chaveiniciodoRound + (Round.length() + 1);
-            txtsemRound = pgn.substring(posicaoinicialdoRound);
-            chavefinaldoRound = txtsemRound.indexOf("]");
-            posicaofinaldoRound = posicaoinicialdoRound + chavefinaldoRound - 1;
-            Round = pgn.substring(posicaoinicialdoRound, posicaofinaldoRound);
+            Round = pgn.substring(pgn.indexOf(Round) + Round.length() + 1,
+                    pgn.indexOf(Round) + Round.length() + 1 + pgn.substring(pgn.indexOf(Round) + Round.length() + 1).indexOf("]") - 1);
 
-            if (Round.equals("")) {                
+            if (Round.equals("")) {
                 Round = "ND";
             } else {
                 Round = Round.replace(".", "/");

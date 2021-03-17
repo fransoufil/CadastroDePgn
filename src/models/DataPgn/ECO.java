@@ -2,25 +2,19 @@ package models.DataPgn;
 
 public class ECO {
 
-    String ECO, txtsemECO;
-    int chaveiniciodoECO, posicaoinicialdoECO, chavefinaldoECO, posicaofinaldoECO;
-    
-    public String getECO(String pgn) {
-        
-        ECO = "[ECO ";
-        
-        chaveiniciodoECO = pgn.indexOf(ECO);
+    String ECO;
 
-        if (chaveiniciodoECO == -1) {
+    public String getECO(String pgn) {
+
+        ECO = "[ECO ";
+
+        if (!pgn.contains(ECO)) {
             ECO = "ND";
         } else {
-            posicaoinicialdoECO = chaveiniciodoECO + (ECO.length() + 1);
-            txtsemECO = pgn.substring(posicaoinicialdoECO);
-            chavefinaldoECO = txtsemECO.indexOf("]");
-            posicaofinaldoECO = posicaoinicialdoECO + chavefinaldoECO - 1;
-            ECO = pgn.substring(posicaoinicialdoECO, posicaofinaldoECO);
+            ECO = pgn.substring(pgn.indexOf(ECO) + ECO.length() + 1,
+                    pgn.indexOf(ECO) + ECO.length() + 1 + pgn.substring(pgn.indexOf(ECO) + ECO.length() + 1).indexOf("]") - 1);
 
-            if (ECO.equals("")) {                
+            if (ECO.equals("")) {
                 ECO = "ND";
             } else {
                 ECO = ECO.replace(".", "/");

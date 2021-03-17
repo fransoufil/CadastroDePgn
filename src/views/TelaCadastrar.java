@@ -456,16 +456,19 @@ public class TelaCadastrar extends javax.swing.JFrame {
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(btnObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(65, 65, 65)
-                        .addComponent(btnNome, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(btnOk)
-                        .addGap(6, 6, 6)
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76)
-                        .addComponent(btnVoltar)
-                        .addGap(7, 7, 7)
-                        .addComponent(btnINICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(btnNome, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(57, 57, 57)
+                                .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(76, 76, 76)
+                                .addComponent(btnVoltar)
+                                .addGap(7, 7, 7)
+                                .addComponent(btnINICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(161, 161, 161)
+                                .addComponent(btnOk)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -537,35 +540,35 @@ public class TelaCadastrar extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(btnLichess)))))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGap(31, 31, 31)
                         .addComponent(btnColar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGap(31, 31, 31)
                         .addComponent(btnCopiar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
+                        .addGap(21, 21, 21)
                         .addComponent(textTAMANHODOPGN, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGap(31, 31, 31)
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
+                        .addGap(31, 31, 31)
                         .addComponent(btnObservacao, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(7, 7, 7)
+                        .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
                         .addComponent(btnNome, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnOk, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGap(47, 47, 47)
                         .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(91, 91, 91)
                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
+                        .addGap(81, 81, 81)
                         .addComponent(btnINICIO, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -584,7 +587,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
             abertura = new Abertura().getAbertura(sequenciainicial);
             nomedaabertura = new NomeDaAbertura().getNomeDaAbertura(abertura, txtPecas.getText());
 
-            //txtSequenciaInicial.setText(sequenciainicial);
             txtSequenciaInicial.setText(new ReplaceOpening().replaceOpening(sequenciainicial));
             txtAbertura.setText(abertura);
             txtSiglaDaAbertura.setText(nomedaabertura);
@@ -611,6 +613,18 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
+        String pgn = txtPgn.getText();
+        String finalNome; 
+        
+        if (pgn.equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Não há PGN caregado!", "ATENÇÃO", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            
+            finalNome = JOptionPane.showInputDialog(null, "Qual foi o final?", "Final da partida", 3);
+            
+        }
 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -643,7 +657,8 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 System.out.println("White------> " + white);
                 String black = new Black().getBlack(TelaCadastrar.txtPgn.getText());
                 System.out.println("Black------> " + black);
-                
+                String result = new Result().getResult(TelaCadastrar.txtPgn.getText());
+                System.out.println("Result------> " + result);
                 String utcdate = new UTCDate().getUTCDate(TelaCadastrar.txtPgn.getText());
                 System.out.println("UTCDate------> " + utcdate);
                 String utctime = new UTCTime().getUTCTime(TelaCadastrar.txtPgn.getText());
@@ -652,7 +667,8 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 System.out.println("WhiteElo------> " + whiteelo);
                 String blackelo = new BlackElo().getBlackElo(TelaCadastrar.txtPgn.getText());
                 System.out.println("BlackElo------> " + blackelo);
-                
+                String variant = new Variant().getVariant(TelaCadastrar.txtPgn.getText());
+                System.out.println("Variant------> " + variant);
                 String timecontrol = new TimeControl().getTimeControl(TelaCadastrar.txtPgn.getText());
                 System.out.println("Timecontrol------> " + timecontrol);
                 String eco = new ECO().getECO(TelaCadastrar.txtPgn.getText());
@@ -665,10 +681,13 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 System.out.println("Annotator------> " + annotator);
                 String round = new Round().getRound(TelaCadastrar.txtPgn.getText());
                 System.out.println("Round------> " + round);
+                String notacao = new Notacao().getNotacao(TelaCadastrar.txtPgn.getText());
+                System.out.println("Notacao------> " + notacao);
 
             }
 
         } else {
+            
             txtPgn.setText("");
             txtPgn.paste();
 
@@ -678,7 +697,6 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 abertura = new Abertura().getAbertura(sequenciainicial);
                 nomedaabertura = new NomeDaAbertura().getNomeDaAbertura(abertura, txtPecas.getText());
 
-                //txtSequenciaInicial.setText(sequenciainicial);
                 txtSequenciaInicial.setText(new ReplaceOpening().replaceOpening(sequenciainicial));
                 txtAbertura.setText(abertura);
                 txtSiglaDaAbertura.setText(nomedaabertura);

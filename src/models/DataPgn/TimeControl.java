@@ -2,25 +2,19 @@ package models.DataPgn;
 
 public class TimeControl {
 
-    String TimeControl, txtsemTimeControl;
-    int chaveiniciodoTimeControl, posicaoinicialdoTimeControl, chavefinaldoTimeControl, posicaofinaldoTimeControl;
-    
-    public String getTimeControl(String pgn) {
-        
-        TimeControl = "[TimeControl ";
-        
-        chaveiniciodoTimeControl = pgn.indexOf(TimeControl);
+    String TimeControl;
 
-        if (chaveiniciodoTimeControl == -1) {
+    public String getTimeControl(String pgn) {
+
+        TimeControl = "[TimeControl ";
+
+        if (!pgn.contains(TimeControl)) {
             TimeControl = "ND";
         } else {
-            posicaoinicialdoTimeControl = chaveiniciodoTimeControl + (TimeControl.length() + 1);
-            txtsemTimeControl = pgn.substring(posicaoinicialdoTimeControl);
-            chavefinaldoTimeControl = txtsemTimeControl.indexOf("]");
-            posicaofinaldoTimeControl = posicaoinicialdoTimeControl + chavefinaldoTimeControl - 1;
-            TimeControl = pgn.substring(posicaoinicialdoTimeControl, posicaofinaldoTimeControl);
+            TimeControl = pgn.substring(pgn.indexOf(TimeControl) + TimeControl.length() + 1,
+                    pgn.indexOf(TimeControl) + TimeControl.length() + 1 + pgn.substring(pgn.indexOf(TimeControl) + TimeControl.length() + 1).indexOf("]") - 1);
 
-            if (TimeControl.equals("")) {                
+            if (TimeControl.equals("")) {
                 TimeControl = "ND";
             } else {
                 TimeControl = TimeControl.replace(".", "/");
