@@ -573,7 +573,7 @@ public class TelaCadastrar extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(1277, 824));
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -613,8 +613,9 @@ public class TelaCadastrar extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
-        String pgn = txtPgn.getText();
-        String finalNome; 
+        String pgn, finalNome, pecas, tipo, siglaPecas, siglaTipo, siglaAbertura, abertura, siglaResultado;
+        
+        pgn = txtPgn.getText();
         
         if (pgn.equals("")) {
 
@@ -623,6 +624,16 @@ public class TelaCadastrar extends javax.swing.JFrame {
         } else {
             
             finalNome = JOptionPane.showInputDialog(null, "Qual foi o final?", "Final da partida", 3);
+            pecas = lblPecas.getText();
+            tipo = lblTipo.getText();
+            
+            System.out.println("pgn--------->" + pgn + "\n" 
+                    + "finalNome--------->" + finalNome
+                    + "\n" 
+                    + "pecas--------->" + pecas
+                    + "\n" 
+                    + "tipo--------->" + tipo
+                    + "\n");
             
         }
 

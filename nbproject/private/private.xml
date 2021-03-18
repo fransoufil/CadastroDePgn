@@ -6,6 +6,7 @@
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Date.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Site.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/White.java</file>
+            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/views/TelaPc.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/WhiteElo.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Black.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Abertura.java</file>
@@ -15,9 +16,9 @@
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/ECO.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Annotator.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/ChangesPgn/ChangeName.java</file>
+            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/views/TelaResultado.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/BlackElo.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Termination.java</file>
-            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/ChangesPgn/SavePgn.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Variant.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Round.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Opening.java</file>
@@ -28,6 +29,8 @@
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/UTCDate.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Notacao.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/DataPgn/Event.java</file>
+            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/views/TelaTipo.java</file>
+            <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/views/TelaPecas.java</file>
             <file>file:/home/franz/NetBeansProjects/PublicCadastroDePgn/src/models/ChangesPgn/ReplaceOpening.java</file>
         </group>
     </open-files>

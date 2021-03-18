@@ -305,7 +305,7 @@ public class TelaTipo extends javax.swing.JFrame {
     private javax.swing.JButton btnPessoal;
     private javax.swing.JButton btnPesxPc;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JPanel jPanel1;
     public static javax.swing.JLabel lblPecas;
     public static javax.swing.JLabel lblResulado;
     public static javax.swing.JLabel lblSiglaPecas;
