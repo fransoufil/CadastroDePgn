@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class Event {
 
-    String Event;
+    private String Event;
 
     public String getEvent(String pgn) {
 

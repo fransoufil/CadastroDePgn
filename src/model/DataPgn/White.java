@@ -1,8 +1,8 @@
 package model.DataPgn;
 
 public class White {
-    
-   String White;
+
+    private String White;
 
     public String getWhite(String pgn) {
 
@@ -23,5 +23,5 @@ public class White {
         }
         return White;
     }
-    
+
 }

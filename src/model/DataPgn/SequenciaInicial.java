@@ -2,8 +2,8 @@ package model.DataPgn;
 
 public class SequenciaInicial {
 
-    String inicioabertura = "1. ", finalabertura = "7.";
-    int posicaoinicialdaabertura, posicaofinaldaabertura;
+    private String inicioabertura = "1. ", finalabertura = "7.";
+    private int posicaoinicialdaabertura, posicaofinaldaabertura;
 
     public String getSequenciainicial(String pgn) {
 

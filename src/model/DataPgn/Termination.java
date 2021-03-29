@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class Termination {
 
-    String Termination;
+    private String Termination;
 
     public String getTermination(String pgn) {
 

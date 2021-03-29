@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class ECO {
 
-    String ECO;
+    private String ECO;
 
     public String getECO(String pgn) {
 

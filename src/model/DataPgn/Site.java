@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class Site {
 
-    String Site;
+    private String Site;
 
     public String getSite(String pgn) {
 

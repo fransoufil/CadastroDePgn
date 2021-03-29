@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class Result {
 
-    String Result;
+    private String Result;
 
     public String getResult(String pgn) {
 

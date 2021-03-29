@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class BlackElo {
 
-    String BlackElo;
+    private String BlackElo;
 
     public String getBlackElo(String pgn) {
 

@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class Round {
 
-    String Round;
+    private String Round;
 
     public String getRound(String pgn) {
 

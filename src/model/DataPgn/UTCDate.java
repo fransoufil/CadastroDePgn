@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class UTCDate {
 
-    String UTCDate;
+    private String UTCDate;
 
     public String getUTCDate(String pgn) {
 

@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class Black {
     
-    String Black;
+    private String Black;
 
     public String getBlack(String pgn) {
 

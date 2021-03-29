@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class Date {
 
-   String Date;
+    private String Date;
 
     public String getDate(String pgn) {
 

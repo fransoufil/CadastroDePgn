@@ -2,7 +2,8 @@ package model.DataPgn;
 
 public class Notacao {
     
-    String strInicial;
+    private String strInicial;
+    
     public String getNotacao(String pgn) {
         
         strInicial  = "1. ";

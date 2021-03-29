@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class Variant {
 
-    String Variant;
+    private String Variant;
 
     public String getVariant(String pgn) {
 

@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class TimeControl {
 
-    String TimeControl;
+    private String TimeControl;
 
     public String getTimeControl(String pgn) {
 

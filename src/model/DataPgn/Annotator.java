@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class Annotator {
     
-    String Annotator;
+    private String Annotator;
     
     public String getAnnotator(String pgn) {
         

@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class Opening {
 
-    String Opening;
+    private String Opening;
 
     public String getOpening(String pgn) {
 

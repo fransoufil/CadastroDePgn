@@ -2,7 +2,7 @@ package model.DataPgn;
 
 public class NomeDaAbertura {
 
-    String nomedaabertura;
+    private String nomedaabertura;
     
     public String getNomeDaAbertura(String abertura, String cordaspecas) {
         
