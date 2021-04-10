@@ -3,10 +3,12 @@ package model.ChangesPgn;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import model.DataPgn.Abertura;
+import model.DataPgn.SequenciaInicial;
 
 public class SavePgn {
 
-    Boolean setSavePgn(
+    public Boolean setSavePgn(
             String pgn,
             String finalNome,
             String pecas,
@@ -18,6 +20,11 @@ public class SavePgn {
             String sequenciainicial) {
 
         if (pecas.equals("BRANCAS") && !tipo.equals("GME")) {
+            
+            SequenciaInicial si = new SequenciaInicial();
+            Abertura ab = new Abertura();
+            
+            finalNome = si.getSequenciainicial(pgn).replace(ab.getAbertura(si.getSequenciainicial(pgn)), "");
 
             JFileChooser salvarArquivo = new JFileChooser();
             salvarArquivo.setSelectedFile(new File(siglatipo + siglapecas + siglaresultado + " " + siglaabertura + " " + sequenciainicial + finalNome.toLowerCase()));
@@ -25,6 +32,10 @@ public class SavePgn {
             salvarArquivo.setAcceptAllFileFilterUsed(false);
             FileNameExtensionFilter filtro = new FileNameExtensionFilter(".pgn", "pgn");
             salvarArquivo.addChoosableFileFilter(filtro);
+            
+            salvarArquivo.setName(finalNome);
+            salvarArquivo.showSaveDialog(salvarArquivo);
+            
 
         }
 

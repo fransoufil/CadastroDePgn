@@ -27,6 +27,7 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import javax.swing.JOptionPane;
+import model.ChangesPgn.SavePgn;
 //import models.CapturaDadosPgn;
 
 public class TelaCadastrar extends javax.swing.JFrame {
@@ -655,6 +656,9 @@ public class TelaCadastrar extends javax.swing.JFrame {
                     + "\n" 
                     + "tipo--------->" + tipo
                     + "\n");
+            
+            SavePgn salvar = new SavePgn();
+            //salvar.setSavePgn(pgn, finalNome, pecas, tipo, siglaPecas, siglaTipo, siglaResultado, siglaAbertura, siglaPecas);
             
         }
 
